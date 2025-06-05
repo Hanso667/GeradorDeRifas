@@ -4,17 +4,19 @@
 
 body {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 header {
     width: 100%;
+    min-height: 5vh;
     height: 5%;
     background-color: black;
 }
 
 main {
     width: 100%;
+    min-height: 90vh;
     height: 90%;
     background-color: rgb(43, 43, 43);
 
@@ -105,8 +107,41 @@ h2{
     color: black;
 }
 
+#Rifas-Card-View{
+    width: 100%;
+    min-height: 90vh;
+    height: 100%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(3,300px);
+    grid-template-rows: repeat(1,200px);
+}
+
+.rifa-card{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.divDesc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    
+}
+.rifa-card p, h3{
+    color: black;
+}
+
+
 footer {
     width: 100%;
+    min-height: 5vh;
     height: 5%;
     background-color: black;
 }
