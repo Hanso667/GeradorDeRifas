@@ -17,7 +17,7 @@
     </header>
 
     <main>
-        <form method="$_POST" class="Form">
+        <form action="Rifas.php" method="POST" class="Form">
 
             <h1>Gerador de Rifas</h1>
 
@@ -35,7 +35,7 @@
                     <input type="text" name="Valor" class="Input01">
 
                     <label for="Quantidade" class="Label01">Quantidade</label>
-                    <input type="text" name="Quantidade" class="Input01">
+                    <input type="text" name="Quantidade" class="Input01"> 
                 </div>
             </div>
 
@@ -60,9 +60,10 @@
 
             </div>
 
-            <button type="submit" class="Button-submit">Enviar</button>
+            <button id="submit" type="submit" class="Button-submit">Enviar</button>
 
         </form>
+
 
     </main>
 
