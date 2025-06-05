@@ -9,13 +9,13 @@ Este projeto é uma aplicação web simples para cadastro e visualização de ri
 - Botão para **impressão otimizada** dos cartões de rifas (exclui cabeçalho, rodapé e botões no modo impressão).
 
 ## Estrutura do Projeto
-    ```
+    
     /
     ├── index.php # Página principal com formulário de cadastro
     ├── Rifas.php # Página de visualização/listagem das rifas
     ├── reset.css # Reset de estilos para consistência entre navegadores
     ├── style.css # Estilos principais do projeto
-    ```
+    
 ## Como Usar
 
 1. **Clone o repositório:**
