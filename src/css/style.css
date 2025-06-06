@@ -1,4 +1,4 @@
-*{
+* {
     color: white;
 }
 
@@ -26,12 +26,14 @@ main {
     background-color: rgb(43, 43, 43);
 
 }
-h1{
+
+h1 {
     font-size: xx-large;
     margin-top: 50px;
     margin-bottom: 50px;
 }
-h2{
+
+h2 {
     font-size: larger;
     margin-top: 25px;
     margin-bottom: 10px;
@@ -47,7 +49,7 @@ h2{
     gap: 10px;
 }
 
-.Card-view{
+.Card-view {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -55,18 +57,18 @@ h2{
     gap: 5px;
 }
 
-.Card{
+.Card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.Label01{
+.Label01 {
     margin-top: 5px;
 }
 
-.Input01{
+.Input01 {
     width: 320px;
     height: 20px;
     text-align: center;
@@ -74,29 +76,29 @@ h2{
     color: black;
 }
 
-.Premios{
+.Premios {
     display: grid;
     justify-content: center;
     align-items: center;
-    grid-template-columns: repeat(3,200px) ;
-    grid-template-rows: repeat(1,100px);
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(1, 100px);
     gap: 15px;
 
 }
 
-.Card-Premio{
+.Card-Premio {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.LabelPremios{
+.LabelPremios {
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-.InputPremios{
+.InputPremios {
     width: 100%;
     height: 30px;
     text-align: center;
@@ -104,7 +106,7 @@ h2{
     color: black;
 }
 
-.Button-submit{
+.Button-submit {
     margin-top: 50px;
     margin-bottom: 50px;
     width: 300px;
@@ -112,18 +114,18 @@ h2{
     color: black;
 }
 
-#Rifas-Card-View{
+#Rifas-Card-View {
     width: 100%;
     min-height: 90vh;
     height: 100%;
     display: grid;
     justify-content: center;
     align-content: center;
-    grid-template-columns: repeat(3,300px);
-    grid-template-rows: repeat(1,200px);
+    grid-template-columns: repeat(3, 300px);
+    grid-template-rows: repeat(1, 200px);
 }
 
-.rifa-card{
+.rifa-card {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -133,11 +135,13 @@ h2{
     background-color: white;
     border: 1px solid black;
 }
-.rifa-card p, h3{
+
+.rifa-card p,
+h3 {
     color: black;
 }
 
-.divDesc{
+.divDesc {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -145,23 +149,29 @@ h2{
     align-items: center;
     width: 60%;
     height: 100%;
-    
+
 }
-.divDesc p{
-    width: 80%;
-    height: 50px;
+
+.divDesc p {
+    width: 90%;
+    height: 110px;
     position: absolute;
-    top: 65px;
-    font-size: xx-small;
-    text-wrap: wrap;
+    top: 50px;
+    font-size: x-small;
+    overflow-wrap: break-word;
     text-align: center;
 }
-.divDesc h3{
+
+.divDesc h3 {
+    text-decoration: underline;
     position: absolute;
     text-align: center;
-    top: 10px;
+    width: 100%;
+    top: 15px;
+    font-size: large;
 }
-.divDesc h4{
+
+.divDesc h4 {
     position: absolute;
     bottom: 10px;
     left: 10px;
@@ -169,7 +179,7 @@ h2{
     color: black;
 }
 
-.divPremio{
+.divPremio {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -179,29 +189,39 @@ h2{
     height: 100%;
 }
 
-.divPremio h2{
+.divPremio h2 {
     color: black;
 }
 
-.Lista{
+.Lista {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     list-style-type: circle;
 }
-::marker{
+
+::marker {
     color: black;
 }
-.Lista p{
-    text-align: wrap;
+.Lista li{
+    width: 100px;
+}
+.Lista p {
+    width: 100%;
     font-size: small;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
-.numero{
+.numero {
     position: absolute;
     top: 10px;
     right: 10px;
     color: black;
 }
 
-#printBtn{
+#printBtn {
     width: 200px;
     height: 50px;
     font-size: larger;
@@ -209,6 +229,13 @@ h2{
     color: black;
 }
 
+.gift{
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+}
 
 
 
@@ -225,15 +252,20 @@ footer {
         color: black !important;
     }
 
-    header, footer, #printBtn {
-        display: none !important; /* Esconde itens desnecessários */
+    header,
+    footer,
+    #printBtn {
+        display: none !important;
+        /* Esconde itens desnecessários */
     }
 
     #Rifas-Card-View {
+        margin-top: -3px;
+        margin-right: 14px;
         display: grid;
-        grid-template-columns: repeat(3, 300px);
+        grid-template-columns: repeat(3, 263px);
         justify-content: center;
-        align-content: flex-start;
+        align-content: center;
     }
 
     .rifa-card {
@@ -245,7 +277,11 @@ footer {
         margin: 5px;
     }
 
-    .rifa-card *, .rifa-card p, .rifa-card h3, .rifa-card h4, .rifa-card h2 {
+    .rifa-card *,
+    .rifa-card p,
+    .rifa-card h3,
+    .rifa-card h4,
+    .rifa-card h2 {
         color: black !important;
     }
 

@@ -1,13 +1,11 @@
 <?php
 $titulo = $_POST['Titulo'];
-$desc = $_POST['Descricao'];
 $valor = $_POST['Valor'];
 $quant = $_POST['Quantidade'];
 $premio1 = $_POST['Premio01'];
 $premio2 = $_POST['Premio02'];
 $premio3 = $_POST['Premio03'];
 ?>
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -28,101 +26,102 @@ $premio3 = $_POST['Premio03'];
 
     <main id="main">
 
-            <script>
+        <script>
+            function takePrint() {
+                window.print();
+            }
 
-                function takePrint() {
-                    document.getElementById('printBtn').style.display = "none"
-                    window.print();
-                    document.getElementById('printBtn').style.display = "block"
-                }
+            const titulo = "<?php echo $titulo; ?>"
+            const desc = <?php echo json_encode($_POST['Descricao']); ?>.replace(/(\r\n|\n|\r)/g, "<br>");
+            const valor = "<?php echo $valor; ?>"
+            const quant = "<?php echo $quant; ?>"
+            const premio1 = "<?php echo $premio1; ?>"
+            const premio2 = "<?php echo $premio2; ?>"
+            const premio3 = "<?php echo $premio3; ?>"
 
-                const titulo = "<?php echo $titulo; ?>"
-                const desc = "<?php echo $desc; ?>"
-                const valor = "<?php echo $valor; ?>"
-                const quant = "<?php echo $quant; ?>"
-                const premio1 = "<?php echo $premio1; ?>"
-                const premio2 = "<?php echo $premio2; ?>"
-                const premio3 = "<?php echo $premio3; ?>"
+            const printBtn = document.createElement('button')
+            printBtn.onclick = takePrint
+            printBtn.textContent = "Imprimir"
+            printBtn.id = 'printBtn'
+            document.getElementById('main').appendChild(printBtn)
 
-                const printBtn = document.createElement('button')
-                printBtn.onclick = takePrint
-                printBtn.textContent = "Imprimir"
-                printBtn.id = 'printBtn'
-                document.getElementById('main').appendChild(printBtn)
+            const container = document.createElement('container')
+            container.id = 'Rifas-Card-View'
+            container.style.gridTemplateRows = `repeat(${Math.ceil(quant/3)},200px)`
+            document.getElementById('main').appendChild(container)
 
-                const container =document.createElement('container')
-                container.id = 'Rifas-Card-View'
-                container.style.gridTemplateRows = `repeat(${Math.ceil(quant/3)},200px)`
-                document.getElementById('main').appendChild(container)
+            for (let index = 1; index <= quant; index++) {
 
-                for (let index = 1; index <= quant; index++) {
+                let card = document.createElement('div')
+                card.className = 'rifa-card';
 
-                   let card = document.createElement('div')
-                   card.className = 'rifa-card';
+                let divDesc = document.createElement('div');
+                divDesc.className = 'divDesc';
 
-                   let divDesc = document.createElement('div');
-                   divDesc.className = 'divDesc';
+                let cardTitulo = document.createElement('h3')
+                cardTitulo.textContent = titulo
 
-                   let cardTitulo = document.createElement('h3')
-                   cardTitulo.textContent = titulo
+                let cardDesc = document.createElement('p')
+                cardDesc.innerHTML = desc
 
-                   let cardDesc = document.createElement('p')
-                   cardDesc.textContent = desc
+                let cardValor = document.createElement('h4')
+                cardValor.textContent = "R$" + parseFloat(valor).toFixed(2);
 
-                   let cardValor = document.createElement('h4')
-                   cardValor.textContent = "R$" + parseFloat(valor).toFixed(2);
+                let divPremio = document.createElement('div');
+                divPremio.className = 'divPremio';
 
-                   let divPremio = document.createElement('div');
-                   divPremio.className = 'divPremio';
+                let premioTitulo = document.createElement('h2');
+                premioTitulo.textContent = "Premios"
 
-                   let premioTitulo = document.createElement('h2');
-                   premioTitulo.textContent = "Premios"
-                   
 
-                   let premioList = document.createElement('ul')
-                   premioList.className = "Lista"
-                    
+                let premioList = document.createElement('ul')
+                premioList.className = "Lista"
 
-                   let listPremio1 = document.createElement('li')
-                   let listPremio2 = document.createElement('li')
-                   let listPremio3 = document.createElement('li')
 
-                   let cardPremio1 = document.createElement('p')
-                   cardPremio1.textContent = premio1
-                   let cardPremio2 = document.createElement('p')
-                   cardPremio2.textContent = premio2
-                   let cardPremio3 = document.createElement('p')
-                   cardPremio3.textContent = premio3
+                let listPremio1 = document.createElement('li')
+                let listPremio2 = document.createElement('li')
+                let listPremio3 = document.createElement('li')
 
-                   let numero = document.createElement('p')
-                   numero.textContent = index+"º"
-                   numero.className = "numero"
-                   divPremio.appendChild(numero)
-                   
+                let cardPremio1 = document.createElement('p')
+                cardPremio1.textContent = premio1
+                let cardPremio2 = document.createElement('p')
+                cardPremio2.textContent = premio2
+                let cardPremio3 = document.createElement('p')
+                cardPremio3.textContent = premio3
 
-                   container.appendChild(card)
-                   card.appendChild(cardTitulo)
-                   card.appendChild(cardDesc)
-                   card.appendChild(cardValor)
-                   card.appendChild(divDesc)
-                   card.appendChild(divPremio)
-                   divDesc.appendChild(cardTitulo)
-                   divDesc.appendChild(cardDesc)
-                   divDesc.appendChild(cardValor)
-                   divPremio.appendChild(cardPremio1)
-                   divPremio.appendChild(cardPremio2)
-                   divPremio.appendChild(cardPremio3)
-                   divPremio.appendChild(premioTitulo)
-                   divPremio.appendChild(premioList)
-                   premioList.appendChild(listPremio1)
-                   premioList.appendChild(listPremio2)
-                   premioList.appendChild(listPremio3)
-                   listPremio1.appendChild(cardPremio1)
-                   listPremio2.appendChild(cardPremio2)
-                   listPremio3.appendChild(cardPremio3)
-                    
-                }
-            </script>
+                let numero = document.createElement('p')
+                numero.textContent = "n. " + index + "º"
+                numero.className = "numero"
+                divPremio.appendChild(numero)
+
+                let gift = document.createElement('img')
+                gift.src = "src/img/gift.png"
+                gift.className = 'gift'
+                divPremio.appendChild(gift)
+
+
+                container.appendChild(card)
+                card.appendChild(cardTitulo)
+                card.appendChild(cardDesc)
+                card.appendChild(cardValor)
+                card.appendChild(divDesc)
+                card.appendChild(divPremio)
+                divDesc.appendChild(cardTitulo)
+                divDesc.appendChild(cardDesc)
+                divDesc.appendChild(cardValor)
+                divPremio.appendChild(cardPremio1)
+                divPremio.appendChild(cardPremio2)
+                divPremio.appendChild(cardPremio3)
+                divPremio.appendChild(premioTitulo)
+                divPremio.appendChild(premioList)
+                premioList.appendChild(listPremio1)
+                premioList.appendChild(listPremio2)
+                premioList.appendChild(listPremio3)
+                listPremio1.appendChild(cardPremio1)
+                listPremio2.appendChild(cardPremio2)
+                listPremio3.appendChild(cardPremio3);
+            };
+        </script>
 
     </main>
 

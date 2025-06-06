@@ -24,38 +24,56 @@
             <div class="Card-view">
                 <div class="Card">
                     <label for="label" class="Label01">Titulo</label>
-                    <input type="text" name="Titulo" class="Input01">
+                    <input maxlength="18" type="text" name="Titulo" class="Input01">
 
                     <label for="Descricao" class="Label01">Descrição</label>
-                    <textarea name="Descricao" class="Input01"></textarea>
+                    <textarea maxlength="320" id="Descricao" name="Descricao" class="Input01"></textarea>
+
+                    <script>
+                        const textarea = document.getElementById('Descricao');
+                        const maxLinhas = 10;
+
+                        textarea.addEventListener('keydown', (e) => {
+                            const linhas = textarea.value.split('\n');
+                            if (e.key === 'Enter' && linhas.length >= maxLinhas) {
+                                e.preventDefault();
+                            }
+                        });
+
+                        textarea.addEventListener('input', () => {
+                            const linhas = textarea.value.split('\n');
+                            if (linhas.length > maxLinhas) {
+                                textarea.value = linhas.slice(0, maxLinhas).join('\n');
+                            }
+                        })
+                    </script>
                 </div>
 
                 <div class="Card">
                     <label for="Valor" class="Label01">Valor</label>
-                    <input type="text" name="Valor" class="Input01">
+                    <input maxlength="5" type="text" name="Valor" class="Input01">
 
                     <label for="Quantidade" class="Label01">Quantidade</label>
-                    <input type="text" name="Quantidade" class="Input01"> 
+                    <input type="text" name="Quantidade" class="Input01">
                 </div>
             </div>
 
             <h2>Premios</h2>
-
             <div class="Premios">
 
                 <div class="Card-Premio">
                     <label for="Premio01" class="LabelPremios">Primeiro Premio</label>
-                    <input type="text" name="Premio01" class="InputPremios">
+                    <input maxlength="15" type="text" name="Premio01" class="InputPremios">
                 </div>
 
                 <div class="Card-Premio">
                     <label for="Premio01" class="LabelPremios">Segundo Premio</label>
-                    <input type="text" name="Premio02" class="InputPremios">
+                    <input maxlength="15" type="text" name="Premio02" class="InputPremios">
                 </div>
 
                 <div class="Card-Premio">
                     <label for="Premio01" class="LabelPremios">Terceiro Premio</label>
-                    <input type="text" name="Premio03" class="InputPremios">
+                    <input maxlength="15" type="text" name="Premio03" class="InputPremios">
                 </div>
 
             </div>
